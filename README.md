@@ -99,7 +99,7 @@ SEED = 10
 ---
 ## 📁 Repository Structure
 
-A recommended GitHub repository structure is:
+A GitHub repository structure is:
 
 ```text
 COMPARATIVE_ANALYSIS_OF_NMTarchitectures/
