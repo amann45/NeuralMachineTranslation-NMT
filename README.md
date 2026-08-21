@@ -2,45 +2,17 @@
 
 ## 📌 Project Overview
 
-This project presents a comparative experimental study of four Neural Machine Translation (NMT) architectures for **English → Korean** translation:
+This project presents a comparative experimental study of four Neural Machine Translation (NMT) architectures for English → Korean translation: Vanilla RNN, GRU Encoder–Decoder (Seq2Seq), Encoder–Decoder with Bahdanau Additive Attention, and Encoder–Decoder with Luong Multiplicative Attention. The project follows the experimental requirements of the assignment by using a bilingual dataset from the ManyThings.org Anki Language Datasets repository and evaluating all four models under comparable training and testing conditions. The main objective is to investigate how different sequence-modeling approaches and attention mechanisms affect translation quality, language-modeling performance, computational cost, and inference latency.
 
-1. **Vanilla RNN**
-2. **GRU Encoder–Decoder (Seq2Seq)**
-3. **Encoder–Decoder with Bahdanau Additive Attention**
-4. **Encoder–Decoder with Luong Multiplicative Attention**
+The project implements all four NMT architectures from scratch using PyTorch and uses a bilingual dataset for training and evaluation. The models are evaluated using both quantitative and qualitative criteria. BLEU is used to compare translation quality, while test cross-entropy loss and perplexity are used to assess language-modeling performance. In addition, inference latency, the number of trainable parameters, and training time are measured to compare computational efficiency. The project also analyzes the strengths and limitations of attention-based and non-attention-based architectures and provides reproducible code, experimental results, visualizations, and model checkpoints
 
-The project follows the experimental requirements of the assignment by using a bilingual dataset from the **ManyThings.org Anki Language Datasets** repository and evaluating the models under comparable training and testing conditions.
+## 📚 Dataset & statistics
 
-The main goal is to investigate how progressively stronger sequence-modeling and attention mechanisms affect translation quality, language-modeling performance, computational cost, and inference latency.
+The experiment uses the **English–Korean** language pair from the ManyThings.org Anki Language Datasets & is automatically downloaded in the notebook and extracts the translation file, also the experiment uses all 6,392 filtered sentence pairs because the configured maximum of 50,000 pairs is larger than the available dataset.
 
----
-
-## 🎯 Objectives
-
-The project aims to:
-
-- Implement four NMT architectures from scratch using PyTorch.
-- Use a bilingual dataset from the ManyThings.org Anki Language Datasets.
-- Evaluate models using quantitative and qualitative criteria.
-- Compare translation quality using **BLEU**.
-- Measure **test cross-entropy loss** and **perplexity**.
-- Measure **inference latency**.
-- Compare the number of trainable parameters and training time.
-- Analyze the strengths and limitations of attention-based and non-attention-based architectures.
-- Provide reproducible code, saved results, plots, and model checkpoints.
-
----
-
-## 📚 Dataset
-
-The experiment uses the **English–Korean** language pair from the ManyThings.org Anki Language Datasets:
 
 **Dataset:** `kor-eng.zip`  
 **Source:** [ManyThings.org Anki Language Datasets](https://www.manythings.org/anki/)
-
-The notebook automatically downloads the dataset and extracts the translation file.
-
-### Dataset statistics
 
 | Item | Value |
 |---|---:|
@@ -51,9 +23,6 @@ The notebook automatically downloads the dataset and extracts the translation fi
 | Test set | 640 |
 | Source vocabulary | 2,044 |
 | Target vocabulary | 2,363 |
-
-The experiment uses all 6,392 filtered sentence pairs because the configured maximum of 50,000 pairs is larger than the available dataset.
-
 ---
 ## ⚙️ Experimental Configuration
 
@@ -96,54 +65,16 @@ SEED = 10
 ---
 ## 📊 Evaluation Metrics
 
-The models are evaluated using multiple complementary criteria.
-
-### BLEU
-
-Corpus BLEU is used as the primary automatic translation-quality metric.
-
-The implementation also calculates mean sentence-level BLEU.
-
-### Perplexity
-
-Perplexity is calculated from test cross-entropy loss:
-
-```text
-PPL = exp(test_loss)
-```
-
-Lower perplexity indicates better predictive performance on the target sequence.
-
-### Inference latency
-
-The experiment measures:
-
-- Mean latency
-- Median latency
-- 95th-percentile latency (P95)
-
-Latency is reported in milliseconds per sentence.
-
-### Model size
-
-The number of trainable parameters is recorded for each model.
-
-### Training time
-
-Total training time is recorded in seconds and reported in minutes.
-
-### Qualitative evaluation
-
-Representative examples are selected from:
-
-- Simple sentences: ≤ 5 source tokens
-- Complex sentences: 6–12 source tokens
-- Long sentences: > 12 source tokens
-
-The predicted translations are compared against the reference Korean translations.
+| Metric                     | Description                                                                                                                          | Better               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| **BLEU**                   | Corpus BLEU and mean sentence-level BLEU measure translation quality.                                                                | **Higher ↑**         |
+| **Perplexity (PPL)**       | Calculated as `PPL = exp(test_loss)`; measures target-sequence prediction performance.                                               | **Lower ↓**          |
+| **Inference Latency**      | Mean, median, and P95 latency measured in milliseconds per sentence.                                                                 | **Lower ↓**          |
+| **Model Size**             | Number of trainable parameters in the model.                                                                                         | **Lower ↓**          |
+| **Training Time**          | Total model training time, recorded in seconds and reported in minutes.                                                              | **Lower ↓**          |
+| **Qualitative Evaluation** | Translation examples are evaluated for simple (≤5), complex (6–12), and long (>12) source-token sentences against Korean references. | **Better quality ↑** |
 
 ---
-
 ## 📈 Experimental Results
 
 **These values should be regenerated after changing the seed to the required roll number.**
@@ -157,21 +88,26 @@ The predicted translations are compared against the reference Korean translation
 
 > **Note:** The Vanilla RNN corpus BLEU is effectively zero in the recorded run because the generated hypotheses showed extremely poor higher-order n-gram overlap with the references. This is consistent with the qualitative examples, where the model repeatedly generated unrelated phrases and tokens.
 
+### BLEU Score Comparison
+![](plots/test_bleu_comparison.png)
+### Inference Latency Comparison
+![](plots/inference_latency_comparison.png)
+### Loss Curves
+![](plots/loss_curves_all_models.png)
+### Accuracy vs. Speed Trade-off
+![](plots/bleu_vs_latency_tradeoff.png)
 ---
 ## 📁 Repository Structure
 
 A recommended GitHub repository structure is:
 
 ```text
-nmt-comparative-analysis/
+COMPARATIVE_ANALYSIS_OF_NMTarchitectures/
 │
 ├── README.md
-├── COMPARATIVE_ANALYSIS_OF_NMT_models_architectures.ipynb
+├── COMPARATIVE_ANALYSIS_OF_NMTarchitectures.ipynb
 │
-├── nmt_comparative_analysis/
-│   ├── data/
-│   │   └── README.md
-│   │
+├── ├── data/kor-eng
 │   ├── checkpoints/
 │   │   ├── vanilla_rnn.pt
 │   │   ├── gru_seq2seq.pt
@@ -182,6 +118,7 @@ nmt-comparative-analysis/
 │   │   ├── test_bleu_comparison.png
 │   │   ├── inference_latency_comparison.png
 │   │   └── bleu_vs_latency_tradeoff.png
+|   |   └── loss_curves_all_models.png
 │   │
 │   └── results/
 │       ├── quantitative_results.csv
@@ -194,3 +131,47 @@ nmt-comparative-analysis/
 The exact contents may vary depending on which generated artifacts are included in the final GitHub repository.
 
 ---
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/amann45/NeuralMachineTranslation-NMT.git
+cd COMPARATIVE_ANALYSIS_OF_NMTarchitectures
+```
+### Install Dependencies
+```bash
+pip install torch numpy pandas matplotlib nltk
+```
+### Open and Run the Notebook
+```bash
+jupyter notebook COMPARATIVE_ANALYSIS_OF_NMTarchitectures.ipynb
+```
+---
+## 📚 References
+
+1. ManyThings.org. **Anki Language Datasets.**  
+   https://www.manythings.org/anki/
+
+2. Bahdanau, D., Cho, K., & Bengio, Y. (2015). **Neural Machine Translation by Jointly Learning to Align and Translate.**
+
+3. Luong, M.-T., Pham, H., & Manning, C. D. (2015). **Effective Approaches to Attention-based Neural Machine Translation.**
+
+4. Cho, K. et al. (2014). **Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation.**
+
+5. Sutskever, I., Vinyals, O., & Le, Q. V. (2014). **Sequence to Sequence Learning with Neural Networks.**
+
+---
+
+## 👤 Author
+
+**Name:** `Aman Kumar Ray`  
+**Roll Number:** `ACE080BCT010`  
+**Course:** `Computer Engineering`  
+**Institution:** ` ACEM`  
+
+---
+
+## ⭐ Acknowledgement
+
+The bilingual data used in this project is obtained from the ManyThings.org Anki Language Datasets repository. The project is intended for academic and educational experimentation with neural machine translation architectures.
