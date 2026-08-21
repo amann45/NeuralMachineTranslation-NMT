@@ -168,7 +168,7 @@ jupyter notebook COMPARATIVE_ANALYSIS_OF_NMTarchitectures.ipynb
 **Name:** `Aman Kumar Ray`  
 **Roll Number:** `ACE080BCT010`  
 **Course:** `Computer Engineering`  
-**Institution:** ` ACEM`  
+**Institution:** `ACEM`  
 
 ---
 
