@@ -1,0 +1,13 @@
+Complexity,Source,Reference,Model,Prediction
+Simple,my brother is out.,형이 나갔다.,Vanilla RNN,톰은 메리가 그것을 할 것이라는 걸 이미 안다. 있다. 있다. 있다. 있어. 있어. 해. 한다. 수 없다. 있어. 해. 있어. 해. 있어. 해. 있어. 해. 있어. 해. 있어. 해.
+Simple,my brother is out.,형이 나갔다.,GRU Seq2Seq,내 딸은 교수야. 있다. 있다. 있어. 있다. 있다. 있다. 것이다. 할 수 없었다. 있다. 있다. 수 없었다. 있다. 있다. 수 없었다. 말했다. 말했다. 말했다. 했다. 했다. 적이 없어. 없어.
+Simple,my brother is out.,형이 나갔다.,Bahdanau Attention,내 딸은 3살일 뿐이야. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다.
+Simple,my brother is out.,형이 나갔다.,Luong Attention,내 내 나갔다. 나갔다. 나갔다. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어. 있어.
+Complex,please send it to me by fax.,이것을 나에게 팩스로 보내 주세요.,Vanilla RNN,톰은 메리가 그것을 할 것이라는 걸 이미 안다. 있다. 있다. 있다. 있어. 있어. 해. 한다. 수 없다. 있어. 해. 있어. 해. 있어. 해. 있어. 해. 있어. 해. 있어. 해.
+Complex,please send it to me by fax.,이것을 나에게 팩스로 보내 주세요.,GRU Seq2Seq,그만 그만 하지 마. 마. 있다. 것이다. 해. 해. 해. 안 된다. 있다. 것이다. 해. 해. 안 된다. 있다. 것이다. 해. 해. 안 된다. 있다. 것이다. 해. 해. 안
+Complex,please send it to me by fax.,이것을 나에게 팩스로 보내 주세요.,Bahdanau Attention,병원으로 데려다 주세요. 나한테 일곱 시에 수 있을까요? 해줘. 해줘. 나한테 일곱 시에 수 있을까요? 해줘. 나한테 일곱 시에 수 있을까요? 해줘. 나한테 일곱 시에 수 있을까요? 해줘. 나한테
+Complex,please send it to me by fax.,이것을 나에게 팩스로 보내 주세요.,Luong Attention,불가능하지 않다. 주세요. 걸릴 것 같아. 보여. 것이다. 결정했다. 것이다. 결정했다. 것이다. 건넸다. 한다. 한다. 한다. 한다. 한다. 건넸다. 수 있도록 한다. 한다. 한다. 한다. 건넸다. 수 있도록 한다.
+Long,science fiction has undoubtedly been the inspiration for many of the technologies that exist today.,공상 과학은 의심의 여지 없이 오늘날 존재하는 많은 기술에 영감을 주었어.,Vanilla RNN,톰은 메리가 그것을 할 것이라는 걸 이미 안다. 있다. 있다. 있다. 있어. 있어. 해. 한다. 수 없다. 있어. 해. 있어. 해. 있어. 해. 있어. 해. 있어. 해. 있어. 해.
+Long,science fiction has undoubtedly been the inspiration for many of the technologies that exist today.,공상 과학은 의심의 여지 없이 오늘날 존재하는 많은 기술에 영감을 주었어.,GRU Seq2Seq,우리는 대학생입니다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 있다. 것이다. 할 수 없었다. 있다. 있다. 있습니다. 할 수 없었다. 말했다. 말했다. 말했다. 말했다. 말했다. 했다. 적이 없어.
+Long,science fiction has undoubtedly been the inspiration for many of the technologies that exist today.,공상 과학은 의심의 여지 없이 오늘날 존재하는 많은 기술에 영감을 주었어.,Bahdanau Attention,그 그 책을 도서관에 그 사람이 바로 그 사람이 바로 그 사람이 바로 그 사람이 바로 그 사람이 바로 그 사람이 바로 그 사람이 바로 그 사람이 바로 그
+Long,science fiction has undoubtedly been the inspiration for many of the technologies that exist today.,공상 과학은 의심의 여지 없이 오늘날 존재하는 많은 기술에 영감을 주었어.,Luong Attention,과학은 동안 더 많은 사람들이 죽었다. 동안 때 세 개 중 한 많은 사람들이 죽었다. 동안 때 세 개 중 한 개를 한 많은 사람들이 죽었다. 동안 때 세
